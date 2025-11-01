@@ -1,0 +1,51 @@
+.sign-up{
+  width:30%;
+}
+.signup1,.signup2{
+  width: 40%;
+}
+.form-control {
+  width:100%;
+ background-color: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+ /* background-color: rgba(255, 255, 255, 0.40); 
+  border: 1px solid rgba(255, 255, 255, 0.3); /* soft border */
+  color: #fff; /* white text for dark backgrounds */
+  border-radius: 8px;
+  backdrop-filter: blur(8px); /* adds frosted-glass effect */
+  transition: all 0.3s ease;
+}
+
+/* Adjust placeholder color */
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  /*color: black;*/
+}
+
+/* On focus (when typing) */
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.35);
+  border-color: #63b3ed; /* matches Chakra’s blue.400 */
+  box-shadow: 0 0 0 0.2rem rgba(99, 179, 237, 0.25);
+  color: #fff;
+}
+
+.form-text{
+  color:black;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.form-label{
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: normal;
+}
+.user-info, .user-sign{
+  display: flex;
+  justify-content:space-evenly;
+}
+
+.sign-form{
+  padding: 2%;
+}

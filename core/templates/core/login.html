@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate</title>
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+<body>
+  
+  <div class="form">
+    <form id="login-form">
+    <h1>TaskMate</h1>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit" class="button">Log In</button>
+    <p class="text-body-secondary fs-6 fw-normal lh-lg">Don't have an account! <a href="{% url 'signup' %}">SignUp</a></p>
+  </form>
+  </div>
+  
+
+  <script>
+    document.getElementById('login-form').onsubmit = async function(event) {
+      event.preventDefault();
+      const username = event.target.username.value;
+      const password = event.target.password.value;
+
+      try{
+        const response = await fetch('/auth/jwt/create/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+        });
+
+        if (!response.ok) {
+        throw new Error('Invalid login');
+        }
+
+        const data = await response.json();
+
+        // Store tokens in localStorage (can use sessionStorage if you prefer)
+        localStorage.setItem('access_token', data.access);
+        localStorage.setItem('refresh_token', data.refresh);
+        
+
+     
+        alert('Login successful!');
+        // Redirect or update UI accordingly
+        window.location.href='/tasks';
+      } catch (error) {
+      alert(error.message);
+      }
+    };
+
+    // Function to call protected API endpoint with token attached
+    async function fetchProtectedData() {
+      const token = localStorage.getItem('access_token');
+      if (!token) {
+        alert('No access token found, please login.');
+        return;
+      }
+
+      const res = await fetch('/api/protected-resource/', {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        console.log('Protected data:', data);
+        alert('Fetched protected data. Check console.');
+      } else if (res.status === 401) {
+        alert('Unauthorized. Token might be expired.');
+        // Optionally implement refresh token flow here
+      } else {
+        alert('Failed to fetch protected data.');
+      }
+    }
+
+    
+
+    
+
+   
+
+  </script>
+  
+</body>
+</html>
+
+
+
+

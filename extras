@@ -1,0 +1,25 @@
+{tasks.map((task) => (
+<text key={task.id}>{task.title}</text>
+))}
+Tasks
+
+/*useEffect(() => {
+const token = localStorage.getItem("access");
+axios
+.get<task[]>("http://127.0.0.1:8000/to-do/tasks/", {
+  headers: {
+  Authorization: `Bearer ${token}`, // ✅ attach token
+  },
+  })
+  .then((res) => setTask(res.data))
+  .catch((err) => console.error(err.response));
+  }, [])*/
+
+  {
+    statuses.map((s) => (
+      <option key={s.value} value={s.value}>
+        {s.label}
+      </option>
+    ));
+}
+  #860564 #5849b6 #143063 #3b29ae

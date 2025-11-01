@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate</title>
+    <link rel="stylesheet" href="{% static 'core/signup.css' %}">
+</head>
+<body>
+  
+  <div class="form">
+        <form id="signup-form">
+            <h1>TaskMate</h1>
+            <input class="input" type="text" name="username" placeholder="Username" required />
+            <input class="input" type="email" name="email" placeholder="Email" required />
+            <input class="input" type="password" name="password" placeholder="Password" required />
+            <button class="button" type="submit">Sign Up</button>
+            <p class="text-body-secondary fs-6 fw-normal lh-lg">Already have an account! <a href="{% url 'login' %}">Login</a></p>
+        </form>
+  </div>
+  
+    <script>
+    document.getElementById('signup-form').onsubmit = async function (event) {
+        event.preventDefault();
+
+        const username = event.target.username.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        try {
+        const response = await fetch('/auth/users/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        if (!response.ok) {
+            const errData = await response.json();
+            throw new Error(JSON.stringify(errData));
+        }
+
+        alert('Account created! Please log in.');
+        window.location.href = '/login/';
+        } catch (error) {
+        alert('Error: ' + error.message);
+        }
+    };
+    </script>
+  
+</body>
+</html>
