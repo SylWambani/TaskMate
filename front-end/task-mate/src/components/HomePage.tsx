@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import "@fontsource/inter/900.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
-import HeadingStyles from "./styles/headingStyles";
+import HeadingStyles from "./styles/HeadingStyles";
 
 const HomePage = () => {
   const navigate = useNavigate();

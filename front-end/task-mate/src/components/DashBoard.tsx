@@ -1,7 +1,8 @@
-import { Box, Card, Heading } from "@chakra-ui/react";
+import { Box, Card} from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import "@fontsource/inter/400.css";
 import dashImage from "../assets/images/portfolio-2.jpg";
+import HeadingStyles from "./styles/HeadingStyles";
 
 const DashBoard = () => {
   const navigate = useNavigate();
@@ -24,14 +25,7 @@ const DashBoard = () => {
       bgAttachment="fixed"
       overflow="hidden"
     >
-      <Box height="10%">
-        <Heading as="h1" fontSize="2rem" fontWeight="900" fontStyle="normal" color='white'>
-          TASKMATE
-        </Heading>
-        <Heading as="h5" fontSize="1rem" fontWeight="400" fontStyle="italic" color='white'>
-          Where productivity meets simplicity.
-        </Heading>
-      </Box>
+      <HeadingStyles />
       <Box
         height="90%"
         padding="5%"

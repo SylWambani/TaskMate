@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup,Text } from "@chakra-ui/react";
 import { toaster, Toaster } from "./ui/toaster";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,8 @@ import "@fontsource/inter/900.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/800.css";
-import HeadingStyles from "./styles/headingStyles";
+import HeadingStyles from "./styles/HeadingStyles";
+import FormHeading from "./styles/FormHeading";
 
 interface User {
   username: string;
@@ -88,17 +89,7 @@ const SignUpPage = () => {
       <Toaster />
       <HeadingStyles />
       <Box height="90%">
-        <Heading
-          as="h2"
-          textAlign="center"
-          marginBottom="2%"
-          fontWeight="800"
-          fontSize="2.5rem"
-          fontStyle="normal"
-        >
-          {" "}
-          SIGNUP
-        </Heading>
+        <FormHeading>SIGNUP</FormHeading>
         <form className="sign-form" onSubmit={handleSubmit}>
           <div className="user-info">
             <div className="mb-3 sign-up">

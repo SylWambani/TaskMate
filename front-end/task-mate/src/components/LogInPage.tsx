@@ -1,14 +1,14 @@
 import { Box, Button, ButtonGroup, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../App.css';
+import "../App.css";
 import logInImage from "../assets/images/portfolio-1.jpg";
 import "@fontsource/inter/900.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/800.css";
-import HeadingStyles from "./styles/headingStyles";
-
+import HeadingStyles from "./styles/HeadingStyles";
+import FormHeading from "./styles/FormHeading";
 
 const LogInPage = () => {
   const [username, setUsername] = useState("");
@@ -18,7 +18,7 @@ const LogInPage = () => {
   // Optional: just to test if backend is running
   useEffect(() => {
     const token = localStorage.getItem("access");
-    if (!token) return; 
+    if (!token) return;
 
     fetch("http://127.0.0.1:8000/to-do/", {
       headers: {
@@ -70,17 +70,8 @@ const LogInPage = () => {
     >
       <HeadingStyles />
       <Box width="50%" height="90%" justifySelf="center">
-        <Heading
-          as="h2"
-          textAlign="center"
-          marginBottom="5%"
-          fontWeight="800"
-          fontSize="2.5rem"
-          fontStyle="normal"
-        >
-          {" "}
-          LOGIN
-        </Heading>
+        <FormHeading> LOGIN</FormHeading>
+
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="user-name" className="form-label">
