@@ -64,6 +64,7 @@ const LogInPage = () => {
   return (
     <Box
       height="100%"
+      padding="3%"
       bgClip="border-box"
       bgSize="cover"
       bgImage={`url(${logInImage})`}

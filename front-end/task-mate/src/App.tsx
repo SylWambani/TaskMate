@@ -7,9 +7,9 @@ import DashBoard from "./components/DashBoard";
 import TasksPage from "./components/TasksPage";
 import AddTaskPage from "./components/AddTaskPage";
 import SignUpPage from "./components/SignUpPage";
-import { system } from "./components/ui/themes";
+import { system } from "./components/styles/themes";
 
-function App() {
+function App() { 
   return (
     <ChakraProvider value={system}>
       <Box height="100%">
