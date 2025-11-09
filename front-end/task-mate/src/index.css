@@ -7,6 +7,6 @@ html, body, #root {
   font-size: 15px;
 }
 body{
-  height: 100%;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
+  max-width: 480px;
 }

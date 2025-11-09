@@ -4,12 +4,12 @@ const HeadingStyles = () => {
     <Box
       height="10%"
       position="relative"
-      padding={{
+      padding={{ 
         base: "0.5rem",
         sm: "1rem",
         md: "1rem",
         lg: "1rem",
-        xl: "1.5rem",
+        xl: "1rem",
         "2xl": "1.5rem",
       }}
     >
@@ -19,7 +19,7 @@ const HeadingStyles = () => {
           base: "1.5rem",
           sm: "2.2rem",
           md: "2.4rem",
-          lg: "2.5rem",
+          lg: "2.1rem",
           xl: "2.5rem",
           "2xl":"3rem"
         }}
@@ -35,7 +35,7 @@ const HeadingStyles = () => {
           base: "0.6rem",
           sm: "0.9rem",
           md: "1.2rem",
-          lg: "1.3rem",
+          lg: "1.1rem",
           xl: "1.2rem",
           "2xl":"1.5rem"
         }}

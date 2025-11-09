@@ -30,4 +30,15 @@ axios
       md: '600px',
       lg: "992px",
       xl: "1280px",
-      "2xl": "1536px",
+  "2xl": "1536px",
+        //Login page button
+    <Button
+                  type="submit"
+                  size="xl"
+                  width="50%"
+                  borderRadius="5px"
+                  border="none"
+                  _hover={{ backgroundColor: "#333", cursor: "pointer" }}
+                >
+                  Login
+                </Button>

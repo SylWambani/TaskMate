@@ -1,51 +1,135 @@
-.sign-up{
-  width:30%;
+.form {
+  height: 100%;
 }
-.signup1,.signup2{
+.sign-up {
+  width: 30%;
+}
+.signup1,
+.signup2 {
   width: 40%;
 }
+.form-container{}
+.mb-3 {
+  height: 20%;
+  margin-bottom: 10px;
+}
 .form-control {
-  width:100%;
- background-color: rgba(0, 0, 0, 0.5) !important;
+  height: 45%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5) !important;
   border: 1px solid rgba(0, 0, 0, 0.25) !important;
- /* background-color: rgba(255, 255, 255, 0.40); 
-  border: 1px solid rgba(255, 255, 255, 0.3); /* soft border */
-  color: #fff; /* white text for dark backgrounds */
+  color: #fff;
   border-radius: 8px;
-  backdrop-filter: blur(8px); /* adds frosted-glass effect */
+  backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
 
-/* Adjust placeholder color */
 .form-control::placeholder {
   color: rgba(255, 255, 255, 0.7);
-  /*color: black;*/
 }
 
-/* On focus (when typing) */
 .form-control:focus {
   background-color: rgba(255, 255, 255, 0.35);
-  border-color: #63b3ed; /* matches Chakra’s blue.400 */
+  border-color: #63b3ed;
   box-shadow: 0 0 0 0.2rem rgba(99, 179, 237, 0.25);
   color: #fff;
 }
 
-.form-text{
-  color:black;
+.form-text {
+  color: black;
   font-size: 1rem;
   font-style: italic;
 }
 
-.form-label{
+.form-label {
   font-size: 1.4rem;
   font-weight: 400;
   font-style: normal;
 }
-.user-info, .user-sign{
+.user-info,
+.user-sign {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
 
-.sign-form{
+.sign-form {
   padding: 2%;
+}
+
+@media (min-width: 481px) {
+  body {
+    max-width: 768px;
+  }
+  .form{
+    padding:0 8% 0 8%;
+  }
+  .form-control {
+    height: 45%;
+    width: 100%;
+  }
+}
+@media (min-width: 769px) {
+  body {
+    max-width: 1023px;
+  }
+  .form{
+    padding:0 10% 0 10%;
+  }
+  .form-label{
+    
+    font-size: 1.8rem;
+  }
+  .form-control {
+    height: 40%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    max-width: 1280px;
+  }
+  .form-label{
+    
+    font-size: 1.5rem;
+  }
+  .form-control {
+    height: 45%;
+    width: 100%;
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 1281px) {
+  body {
+    max-width: 1536px;
+  }
+  .form{
+    padding:0 20% 0 20%;
+  }
+  .form-label{
+    
+    font-size: 1.5rem;
+  }
+  .form-control {
+    height: 45%;
+    width: 100%;
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 1537px) {
+  body {
+    max-width: 3000px;
+  }
+  .form-label{
+    
+    font-size: 2.2rem;
+  }
+  .form-control {
+    height: 45%;
+    width: 100%;
+    font-size: 1.8rem;
+  }
+  .form-text{
+    font-size: 1.8rem;
+  }
 }

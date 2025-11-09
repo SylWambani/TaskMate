@@ -9,9 +9,9 @@ const FormHeading = ({children}:Props) => {
     <Heading
       as="h2"
       textAlign="center"
-      marginBottom="2.5%"
+      marginBottom="1.5%"
       fontWeight="800"
-      fontSize="2.5rem"
+      fontSize={{base:"1.5rem", sm:"2rem", md:"2.3rem", lg:"2.5rem", xl:"2.5rem", "2xl":"3rem"}}
       fontStyle="normal"
     >{children}</Heading>
   );
