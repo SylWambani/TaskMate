@@ -25,7 +25,7 @@ const DashBoard = () => {
       bgAttachment="fixed"
       overflow="hidden"
     >
-      <HeadingStyles />
+      <HeadingStyles  />
       <Box
         height="90%"
         padding="5%"

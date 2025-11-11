@@ -41,4 +41,12 @@ axios
                   _hover={{ backgroundColor: "#333", cursor: "pointer" }}
                 >
                   Login
-                </Button>
+  </Button>
+                
+
+                 Directory: D:\Programming\Python\Django\TaskMate\venv\Lib\site-packages\social_core\tests\backends\__pycache__
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/19/2025  10:44 AM           3748 test_azuread.cpython-312.pyc

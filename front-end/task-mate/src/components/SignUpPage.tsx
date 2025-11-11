@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup,Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Text, Image } from "@chakra-ui/react";
 import { toaster, Toaster } from "./ui/toaster";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/800.css";
 import HeadingStyles from "./styles/HeadingStyles";
 import FormHeading from "./styles/FormHeading";
+import FormButton from "./styles/FormButton";
 
 interface User {
   username: string;
@@ -75,134 +76,151 @@ const SignUpPage = () => {
       }
     }
   };
-   const handleLogInClick = () => {
-     navigate("/taskmate-login");
-   };
+  const handleLogInClick = () => {
+    navigate("/taskmate-login");
+  };
 
   return (
-    <Box
-      bgImage={`url(${backImage})`}
-      height="100%"
-      bgClip="border-box"
-      bgSize="cover"
-    >
+    <Box height="100%" width="100%">
+      <Image
+        src={backImage}
+        alt="Background"
+        objectFit="fill"
+        w="100%"
+        h="100%"
+        position="absolute"
+      />
       <Toaster />
       <HeadingStyles />
-      <Box height="90%">
+      <Box height="90%" position="relative">
         <FormHeading>SIGNUP</FormHeading>
-        <form className="sign-form" onSubmit={handleSubmit}>
-          <div className="user-info">
-            <div className="mb-3 sign-up">
-              <label htmlFor="first_name" className="form-label">
-                First Name
-              </label>
-              <input
-                id="first_name"
-                className="form-control"
-                type="text"
-                value={users.first_name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3 sign-up ">
-              <label htmlFor="last_name" className="form-label">
-                Surname
-              </label>
-              <input
-                id="last_name"
-                className="form-control"
-                type="text"
-                value={users.last_name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3 sign-up">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                id="email"
-                className="form-control"
-                placeholder="abc@example.com"
-                type="email"
-                value={users.email}
-                onChange={handleChange}
-                required
-              />
-              <div className="col-auto">
-                <span id="emailHelpInline" className="form-text">
-                  Enter a valid email address
-                </span>
+        <Box height="100%" width="100%">
+          <form className="sign-form" onSubmit={handleSubmit}>
+            <div className="user-info">
+              <div className="mb-3 sign-up">
+                <label
+                  htmlFor="first_name"
+                  className="form-label sign-form-label "
+                >
+                  First Name
+                </label>
+                <input
+                  id="first_name"
+                  className="form-control"
+                  type="text"
+                  value={users.first_name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-3 sign-up ">
+                <label
+                  htmlFor="last_name"
+                  className="form-label sign-form-label"
+                >
+                  Surname
+                </label>
+                <input
+                  id="last_name"
+                  className="form-control"
+                  type="text"
+                  value={users.last_name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-3 sign-up">
+                <label htmlFor="email" className="form-label sign-form-label">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  className="form-control"
+                  placeholder="abc@example.com"
+                  type="email"
+                  value={users.email}
+                  onChange={handleChange}
+                  required
+                />
+                <div className="col-auto">
+                  <span id="emailHelpInline" className="form-text">
+                    Enter a valid email address
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="user-sign ">
-            <div className="mb-3  signup1">
-              <label htmlFor="username" className="form-label">
-                User Name
-              </label>
-              <input
-                id="username"
-                className="form-control"
-                placeholder="e.g. sly254 (no spaces)"
-                type="text"
-                value={users.username}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="mb-3  signup2">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                id="password"
-                className="form-control"
-                type="password"
-                value={users.password}
-                onChange={handleChange}
-                required
-              />
-              <div className="col-auto">
-                <span id="passwordHelpInline" className="form-text">
-                  Must be 8-20 characters long.
-                </span>
+            <div className="user-sign ">
+              <div className="mb-3  signup1">
+                <label
+                  htmlFor="username"
+                  className="form-label sign-form-label"
+                >
+                  User Name
+                </label>
+                <input
+                  id="username"
+                  className="form-control"
+                  placeholder="e.g. sly254 (no spaces)"
+                  type="text"
+                  value={users.username}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="mb-3  signup2">
+                <label
+                  htmlFor="password"
+                  className="form-label sign-form-label"
+                >
+                  Password
+                </label>
+                <input
+                  id="password"
+                  className="form-control"
+                  type="password"
+                  value={users.password}
+                  onChange={handleChange}
+                  required
+                />
+                <div className="col-auto">
+                  <span id="passwordHelpInline" className="form-text">
+                    Must be 8-20 characters long.
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <ButtonGroup
-            width="100%"
-            display="block"
-            textAlign="center"
-            marginTop="2%"
-          >
-            <Button
-              type="submit"
-              size="xl"
-              width="40%"
-              borderRadius="8px"
-              border="none"
-              _hover={{ backgroundColor: "#333", cursor: "pointer" }}
+            <ButtonGroup
+              width="100%"
+              display="block"
+              textAlign="center"
+              marginTop="2%"
             >
-              SignUp
-            </Button>
-            <Text>
-              Already have an account?
-              <Button
-                variant="plain"
-                onClick={handleLogInClick}
-                textDecoration="underline"
-                border="none"
-                _hover={{ color: "#fff", cursor: "pointer" }}
+              <FormButton>SignUp</FormButton>
+              <Text
+                fontSize={{
+                  base: "0.9rem",
+                  sm: "1.3rem",
+                  md: "1.3rem",
+                  lg: "1.3rem",
+                  xl: "1.5rem",
+                  "2xl": "1.8rem",
+                }}
               >
-                LogIn
-              </Button>{" "}
-            </Text>
-          </ButtonGroup>
-        </form>
+                Already have an account?
+                <Button
+                  variant="plain"
+                  onClick={handleLogInClick}
+                  textDecoration="underline"
+                  border="none"
+                  _hover={{ color: "#fff", cursor: "pointer" }}
+                >
+                  LogIn
+                </Button>{" "}
+              </Text>
+            </ButtonGroup>
+          </form>
+        </Box>
       </Box>
     </Box>
   );

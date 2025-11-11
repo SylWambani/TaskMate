@@ -16,7 +16,7 @@ const FormButton = ({ children }: Props) => {
         xl: "2xl",
         "2xl": "2xl",
       }}
-      width="50%"
+      width="40%"
       borderRadius="5px"
       border="none"
       fontSize={{

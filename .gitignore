@@ -50,6 +50,25 @@ Thumbs.db
 *.sln
 *.sw?
 
+# --- Coverage / test artifacts ---
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+*.cover
+*.log
+
+# --- Backup / temporary files ---
+*.bak
+*.tmp
+*.old
+
+# --- VS Code settings backup ---
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
 # --- Optional: ignore migrations if you don't want them versioned ---
 # */migrations/
 
