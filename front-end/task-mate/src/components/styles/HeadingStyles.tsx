@@ -1,10 +1,15 @@
 import { Box, Heading } from "@chakra-ui/react";
-const HeadingStyles = () => {
+
+interface HeadingStylesProps {
+  color?: string; 
+}
+
+const HeadingStyles: React.FC<HeadingStylesProps> = ({ color = "black" }) => {
   return (
     <Box
       height="10%"
       position="relative"
-      padding={{ 
+      padding={{
         base: "0.5rem",
         sm: "1rem",
         md: "1rem",
@@ -15,13 +20,14 @@ const HeadingStyles = () => {
     >
       <Heading
         as="h1"
+        color={color}
         fontSize={{
           base: "1.5rem",
           sm: "2.2rem",
           md: "2.4rem",
           lg: "2.1rem",
           xl: "2.5rem",
-          "2xl":"3rem"
+          "2xl": "3rem",
         }}
         fontWeight="900"
         fontStyle="normal"
@@ -31,13 +37,14 @@ const HeadingStyles = () => {
       </Heading>
       <Heading
         as="h5"
+        color={color}
         fontSize={{
           base: "0.6rem",
           sm: "0.9rem",
           md: "1.2rem",
           lg: "1.1rem",
           xl: "1.2rem",
-          "2xl":"1.5rem"
+          "2xl": "1.5rem",
         }}
         fontWeight="400"
         fontStyle="italic"

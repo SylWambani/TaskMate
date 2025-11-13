@@ -1,8 +1,9 @@
-import { Box, Card} from "@chakra-ui/react";
+import { Box, Card } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import "@fontsource/inter/400.css";
 import dashImage from "../assets/images/portfolio-2.jpg";
 import HeadingStyles from "./styles/HeadingStyles";
+import DashBoardCard from "./styles/DashBoardCard";
 
 const DashBoard = () => {
   const navigate = useNavigate();
@@ -25,65 +26,19 @@ const DashBoard = () => {
       bgAttachment="fixed"
       overflow="hidden"
     >
-      <HeadingStyles  />
+      <HeadingStyles color="white" />
       <Box
         height="90%"
         padding="5%"
         display="flex"
+        alignItems='center'
         justifyContent="space-evenly"
+        flexDirection={{ base: "column",sm:"row", }}
       >
-        <Card.Root
-          width="40%"
-          height="100%"
-          cursor="pointer"
-          bg="rgba(255, 255, 255, 0.2)"
-          border="1px solid rgba(255, 255, 255, 0.3)"
-          borderRadius="xl"
-          transition="all 0.2s ease-in-out" // smooth hover + press
-          _hover={{
-            transform: "scale(1.02)", // grows slightly
-            boxShadow: "0 4px 30px rgba(0,0,0,0.3)", // adds depth
-            backdropFilter: "blur(10px)",
-          }}
-          _active={{
-            transform: "scale(0.95)", // press effect
-            boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
-          }}
-          onClick={handleViewTasks}
-          fontSize="4.1rem"
-          fontWeight="400"
-          textAlign="center"
-          justifyContent="center"
-        >
-          {" "}
+        <DashBoardCard onclick={handleViewTasks}>
           Let’s See What’s Next!
-        </Card.Root>
-        <Card.Root
-          width="40%"
-          height="100%"
-          cursor="pointer"
-          bg="rgba(255, 255, 255, 0.2)"
-          border="1px solid rgba(255, 255, 255, 0.3)"
-          borderRadius="xl"
-          transition="all 0.2s ease-in-out" // smooth hover + press
-          _hover={{
-            transform: "scale(1.02)", // grows slightly
-            boxShadow: "0 4px 30px rgba(0,0,0,0.3)", // adds depth
-            backdropFilter: "blur(10px)",
-          }}
-          _active={{
-            transform: "scale(0.95)", // press effect
-            boxShadow: "0 2px 10px rgba(0,0,0,0.2)",
-          }}
-          onClick={handleAddTasks}
-          fontSize="4.1rem"
-          fontWeight="400"
-          textAlign="center"
-          justifyContent="center"
-        >
-          {" "}
-          Got a New Goal?
-        </Card.Root>
+        </DashBoardCard>
+        <DashBoardCard onclick={handleAddTasks}>Got a New Goal?</DashBoardCard>
       </Box>
     </Box>
   );
