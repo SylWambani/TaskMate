@@ -11,6 +11,11 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import HeadingStyles from "./styles/HeadingStyles";
+import FormHeading from "./styles/FormHeading";
+import { formatDate, formatTime, relativeTime } from "./styles/DateTime";
+import { Calendar, Clock, DeleteIcon, Hourglass, PinIcon, Trash2Icon } from "lucide-react";
+import { priorityLabel } from "./styles/PriorityLabels";
 
 interface Task {
   id: number;
@@ -43,7 +48,7 @@ const TasksPage = () => {
 
   if (loading) {
     return (
-      <Box textAlign="center" mt={20} >
+      <Box textAlign="center" mt={20}>
         <Spinner size="xl" color="blue.500" />
         <Text mt={4} color="gray.500">
           Loading your tasks...
@@ -54,7 +59,7 @@ const TasksPage = () => {
 
   if (tasks.length === 0) {
     return (
-      <Box textAlign="center" mt={20} >
+      <Box textAlign="center" mt={20}>
         <VStack gap={4}>
           <Text fontSize="2xl" fontWeight="bold">
             No tasks yet 😴
@@ -74,11 +79,20 @@ const TasksPage = () => {
   }
 
   return (
-    <Box height='100%' width='100%' bg="#0f172a" overflow='hidden'>
+    <Box height="100%" width="100%" backgroundColor="#0f172a">
+      <HeadingStyles color="white" />
+      <FormHeading color="white">YOUR TASKS</FormHeading>
       <SimpleGrid
         column={{ base: 1, md: 2, lg: 3, xl: 4 }}
         gap={2}
         minChildWidth="sm"
+        backgroundColor="#0f172a"
+        width="100%"
+        display="flex"
+        justifyContent="space-evenly"
+        flexDirection={{ base: "column", sm: "column", md: "row" }}
+        marginTop="3%"
+        padding="3%"
       >
         {tasks.map((task) => (
           <Card.Root
@@ -86,14 +100,49 @@ const TasksPage = () => {
             bg="rgba(255,255,255,0.08)"
             backdropFilter="blur(10px)"
             color="white"
-            width='fit-content'
           >
             <Card.Body>
               <Card.Title>{task.title}</Card.Title>
               <Card.Description>{task.description}</Card.Description>
             </Card.Body>
             <Card.Footer>
-              {task.due_date} {task.completed} {task.priority}
+              <VStack width="100%">
+                <Flex width="100%" justifyContent="space-between">
+                  <Box display="flex" gap={1}>
+                    <Calendar size={16} />
+                    <Text fontSize={{ base: "1rem" }}>
+                      {formatDate(task.due_date)}{" "}
+                    </Text>
+                  </Box>
+                  <Box display="flex" gap={1}>
+                    <Clock />
+                    <Text>{formatTime(task.due_date)}</Text>
+                  </Box>
+                </Flex>
+                <Flex
+                  width="100%"
+                  justifyContent="space-between
+                "
+                >
+                  <Box display="flex" gap={1}>
+                    <Hourglass />
+                    <Text>{relativeTime(task.due_date)}</Text>
+                  </Box>
+                  <Box display="flex" gap={1}>
+                    <PinIcon />
+                    <Text>{task.completed}</Text>
+                  </Box>
+                </Flex>
+                <Flex width="100%" justifyContent='space-between'>
+                  <Box display="flex" gap={1}>
+                    {" "}
+                    <Text>{priorityLabel(task.priority)}</Text>
+                  </Box>
+                  <Box>
+                    <Trash2Icon />
+                  </Box>
+                </Flex>
+              </VStack>
             </Card.Footer>
           </Card.Root>
         ))}

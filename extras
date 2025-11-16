@@ -50,3 +50,10 @@ axios
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 -a----        10/19/2025  10:44 AM           3748 test_azuread.cpython-312.pyc
+
+
+
+class UpdateTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['title', 'description', 'due_date', 'priority', 'completed']
