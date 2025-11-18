@@ -8,6 +8,7 @@ import TasksPage from "./components/TasksPage";
 import AddTaskPage from "./components/AddTaskPage";
 import SignUpPage from "./components/SignUpPage";
 import { system } from "./components/styles/themes";
+import EditPage from "./components/EditPage";
 
 function App() { 
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/to-do" element={<DashBoard />} />
             <Route path="/to-do/tasks" element={<TasksPage />} />
             <Route path="/to-do/add-task" element={<AddTaskPage />} />
+            <Route path="/to-do/update-task/:id"element={<EditPage />} />
           </Routes>
         </BrowserRouter>
       </Box>

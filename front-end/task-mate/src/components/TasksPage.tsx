@@ -14,8 +14,9 @@ import {
 import HeadingStyles from "./styles/HeadingStyles";
 import FormHeading from "./styles/FormHeading";
 import { formatDate, formatTime, relativeTime } from "./styles/DateTime";
-import { Calendar, Clock, DeleteIcon, Hourglass, PinIcon, Trash2Icon } from "lucide-react";
+import { Calendar, Clock, Hourglass, PinIcon, Trash2Icon } from "lucide-react";
 import { priorityLabel } from "./styles/PriorityLabels";
+import EditButton from "./styles/EditButton";
 
 interface Task {
   id: number;
@@ -103,6 +104,7 @@ const TasksPage = () => {
           >
             <Card.Body>
               <Card.Title>{task.title}</Card.Title>
+              <EditButton id={task.id} />
               <Card.Description>{task.description}</Card.Description>
             </Card.Body>
             <Card.Footer>
@@ -133,7 +135,7 @@ const TasksPage = () => {
                     <Text>{task.completed}</Text>
                   </Box>
                 </Flex>
-                <Flex width="100%" justifyContent='space-between'>
+                <Flex width="100%" justifyContent="space-between">
                   <Box display="flex" gap={1}>
                     {" "}
                     <Text>{priorityLabel(task.priority)}</Text>

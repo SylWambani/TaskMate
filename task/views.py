@@ -7,7 +7,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.filters import SearchFilter
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, ListModelMixin, UpdateModelMixin
-from .serializers import CreateTaskSerializer, ListSerializer
+from .serializers import CreateTaskSerializer, ListSerializer, UpdateTaskSerializer
 from .models import Task
 
 
@@ -39,7 +39,6 @@ class ListTaskViewSet(ModelViewSet):
 
 class CreateTaskViewSet(CreateModelMixin, GenericViewSet):
     serializer_class = CreateTaskSerializer
-    #permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user)
@@ -48,3 +47,14 @@ class CreateTaskViewSet(CreateModelMixin, GenericViewSet):
         serializer.save(user=self.request.user)
 
    
+class UpdateTaskViewSet(ModelViewSet):
+    serializer_class= UpdateTaskSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def get_queryset(self):
+        return Task.objects.filter(user=self.request.user)
+
+       
+
+
