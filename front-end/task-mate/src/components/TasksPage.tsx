@@ -14,11 +14,13 @@ import {
 import HeadingStyles from "./styles/HeadingStyles";
 import FormHeading from "./styles/FormHeading";
 import { formatDate, formatTime, relativeTime } from "./styles/DateTime";
-import { Calendar, Clock, Hourglass, PinIcon, Trash2Icon } from "lucide-react";
+import { Calendar, Clock, Hourglass, PinIcon } from "lucide-react";
 import { priorityLabel } from "./styles/PriorityLabels";
 import EditButton from "./styles/EditButton";
+import Delete from "./styles/Delete";
+import AddTask from "./styles/AddTask";
 
-interface Task {
+export interface Task {
   id: number;
   title: string;
   description: string;
@@ -83,6 +85,7 @@ const TasksPage = () => {
     <Box height="100%" width="100%" backgroundColor="#0f172a">
       <HeadingStyles color="white" />
       <FormHeading color="white">YOUR TASKS</FormHeading>
+      <AddTask/>
       <SimpleGrid
         column={{ base: 1, md: 2, lg: 3, xl: 4 }}
         gap={2}
@@ -141,7 +144,7 @@ const TasksPage = () => {
                     <Text>{priorityLabel(task.priority)}</Text>
                   </Box>
                   <Box>
-                    <Trash2Icon />
+                    <Delete id={task.id} />
                   </Box>
                 </Flex>
               </VStack>
