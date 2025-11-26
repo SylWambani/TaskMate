@@ -16,7 +16,7 @@ import FormHeading from "./styles/FormHeading";
 import { formatDate, formatTime, relativeTime } from "./styles/DateTime";
 import { Calendar, Clock, Hourglass, PinIcon } from "lucide-react";
 import { priorityLabel } from "./styles/PriorityLabels";
-import EditButton from "./styles/EditButton";
+import EditButton, { type TaskId } from "./styles/EditButton";
 import Delete from "./styles/Delete";
 import AddTask from "./styles/AddTask";
 
@@ -81,20 +81,24 @@ const TasksPage = () => {
     );
   }
 
+  const handleUpdate = ({ id }: TaskId) => {
+    navigate(`/to-do/update-task/${id}`);
+  };
+
+  const handleDeleteTask = (id: number) => {
+    setTask((prev) => prev.filter((task) => task.id !== id));
+  };
+
   return (
     <Box height="100%" width="100%" backgroundColor="#0f172a">
       <HeadingStyles color="white" />
       <FormHeading color="white">YOUR TASKS</FormHeading>
-      <AddTask/>
+      <AddTask />
       <SimpleGrid
-        column={{ base: 1, md: 2, lg: 3, xl: 4 }}
-        gap={2}
-        minChildWidth="sm"
+        columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 4, "2xl": 5 }}
+        gap={5}
         backgroundColor="#0f172a"
         width="100%"
-        display="flex"
-        justifyContent="space-evenly"
-        flexDirection={{ base: "column", sm: "column", md: "row" }}
         marginTop="3%"
         padding="3%"
       >
@@ -106,22 +110,43 @@ const TasksPage = () => {
             color="white"
           >
             <Card.Body>
-              <Card.Title>{task.title}</Card.Title>
-              <EditButton id={task.id} />
-              <Card.Description>{task.description}</Card.Description>
+              <Box margin="0" display="flex" justifyContent="space-between">
+                <Card.Title>{task.title}</Card.Title>
+                <EditButton id={task.id} />
+              </Box>
+
+              <Card.Description color="#e2e8f0">
+                {task.description.length > 25
+                  ? task.description.slice(0, 25) + "..."
+                  : task.description}
+              </Card.Description>
+              {task.description.length > 25 && (
+                <Text
+                  color="blue.300"
+                  fontSize="sm"
+                  margin="0"
+                  cursor="pointer"
+                  _hover={{ textDecoration: "underline" }}
+                  onClick={() => handleUpdate({ id: task.id })}
+                >
+                  Read more
+                </Text>
+              )}
             </Card.Body>
             <Card.Footer>
               <VStack width="100%">
                 <Flex width="100%" justifyContent="space-between">
-                  <Box display="flex" gap={1}>
+                  <Box display="flex" gap={1} alignItems="center">
                     <Calendar size={16} />
-                    <Text fontSize={{ base: "1rem" }}>
+                    <Text fontSize={{ base: "1rem" }} marginBottom="0">
                       {formatDate(task.due_date)}{" "}
                     </Text>
                   </Box>
-                  <Box display="flex" gap={1}>
-                    <Clock />
-                    <Text>{formatTime(task.due_date)}</Text>
+                  <Box display="flex" gap={1} alignItems="center">
+                    <Clock size={16} />
+                    <Text fontSize={{ base: "1rem" }} marginBottom="0">
+                      {formatTime(task.due_date)}
+                    </Text>
                   </Box>
                 </Flex>
                 <Flex
@@ -129,22 +154,27 @@ const TasksPage = () => {
                   justifyContent="space-between
                 "
                 >
-                  <Box display="flex" gap={1}>
-                    <Hourglass />
-                    <Text>{relativeTime(task.due_date)}</Text>
+                  <Box display="flex" gap={1} alignItems="center">
+                    <Hourglass size={16} />
+                    <Text fontSize={{ base: "1rem" }} marginBottom="0">
+                      {relativeTime(task.due_date)}
+                    </Text>
                   </Box>
-                  <Box display="flex" gap={1}>
-                    <PinIcon />
-                    <Text>{task.completed}</Text>
+                  <Box display="flex" gap={1} alignItems="center">
+                    <PinIcon size={16} />
+                    <Text fontSize={{ base: "1rem" }} marginBottom="0">
+                      {task.completed}
+                    </Text>
                   </Box>
                 </Flex>
                 <Flex width="100%" justifyContent="space-between">
-                  <Box display="flex" gap={1}>
-                    {" "}
-                    <Text>{priorityLabel(task.priority)}</Text>
+                  <Box display="flex" gap={1} alignItems="center">
+                    <Text fontSize={{ base: "1rem" }} marginBottom="0">
+                      {priorityLabel(task.priority)}
+                    </Text>
                   </Box>
                   <Box>
-                    <Delete id={task.id} />
+                    <Delete id={task.id} onDelete={handleDeleteTask} />
                   </Box>
                 </Flex>
               </VStack>

@@ -13,7 +13,7 @@ const FormHeading: React.FC<Props> = ({
     <Heading
       as="h2"
       textAlign="center"
-      marginTop={{ sm: "6%", md: "5%" }}
+      marginTop={{ base:'5%',sm: "6%", md: "5%" }}
       fontWeight="800"
       fontSize={{
         base: "1.5rem",
