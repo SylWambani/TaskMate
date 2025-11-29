@@ -1,4 +1,4 @@
-import { Box, Card } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import "@fontsource/inter/400.css";
 import dashImage from "../assets/images/portfolio-2.jpg";

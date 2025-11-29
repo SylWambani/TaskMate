@@ -48,7 +48,6 @@ const EditPage = () => {
   // limits
   const maxTitleWords = 10;
   const maxTitleChars = 50; // change this to whatever char limit you want
-  const maxDescriptionWords = 30;
 
   // Fetch the task and prefill the form
   useEffect(() => {
@@ -114,28 +113,7 @@ const EditPage = () => {
   };
 
   // generic handler for other inputs (description uses word validation but DOESN'T auto-truncate)
-  const handleChange =
-    (field: keyof Task) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-      const value = e.target.value;
-
-      if (field === "description") {
-        const wordCount =
-          value.trim() === ""
-            ? 0
-            : value.trim().split(/\s+/).filter(Boolean).length;
-        if (wordCount > maxDescriptionWords) {
-          setErrors((prev) => ({
-            ...prev,
-            description: `Description cannot exceed ${maxDescriptionWords} words.`,
-          }));
-        } else {
-          setErrors((prev) => ({ ...prev, description: "" }));
-        }
-      }
-
-      setForm((prev) => ({ ...prev, [field]: value }));
-    };
+  
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

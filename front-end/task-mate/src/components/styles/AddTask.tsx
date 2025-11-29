@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from "@chakra-ui/react";
-import { Box, PlusIcon } from "lucide-react";
+import { PlusIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const AddTask = () => {
