@@ -1,4 +1,12 @@
 {
+  "homepage": "https://SylWambani.github.io/TaskMate",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "@chakra-ui/react": "^3.27.1",
     "@emotion/react": "^11.14.0",
