@@ -57,23 +57,22 @@
 .sign-form-label {
   font-size: 1.1rem;
 }
-#title, .edit{
+#title, .edit, .add{
   background-color:rgba(255, 255, 255, 0.2);
   border:1px solid rgba(255, 255, 255, 0.3);
   color: #e2e8f0;
-  font-size: 1.8rem;
 }
-.edit-label{
+.edit-label, .add-label{
   color: #fff;
 }
 input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
   cursor: pointer;
 }
-.edit-option-list, .edit-option{
+.edit-option-list, .edit-option, .add-option, .add-option-list{
   color: black;
 }
-.edit-btn{
+.edit-btn, .add-btn{
   width: 100%;
   display: flex;
   justify-content: center;

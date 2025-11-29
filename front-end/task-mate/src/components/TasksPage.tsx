@@ -62,7 +62,7 @@ const TasksPage = () => {
 
   if (tasks.length === 0) {
     return (
-      <Box textAlign="center" mt={20}>
+      <Box height='100%' textAlign="center" mt={20}>
         <VStack gap={4}>
           <Text fontSize="2xl" fontWeight="bold">
             No tasks yet 😴
