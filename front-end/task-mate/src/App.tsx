@@ -1,4 +1,4 @@
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { Box} from "@chakra-ui/react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/HomePage";
