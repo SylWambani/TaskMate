@@ -7,12 +7,10 @@ import DashBoard from "./components/DashBoard";
 import TasksPage from "./components/TasksPage";
 import AddTaskPage from "./components/AddTaskPage";
 import SignUpPage from "./components/SignUpPage";
-import { system } from "./components/styles/themes";
 import EditPage from "./components/EditPage";
 
 function App() { 
   return (
-    <ChakraProvider value={system}>
       <Box height="100%">
         <HashRouter>
           <Routes>
@@ -26,7 +24,6 @@ function App() {
           </Routes>
         </HashRouter>
       </Box>
-    </ChakraProvider>
   );
 }
 
