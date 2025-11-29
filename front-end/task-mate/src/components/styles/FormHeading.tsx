@@ -2,12 +2,12 @@ import { Heading } from "@chakra-ui/react";
 
 interface Props {
   children: string;
-  color: string;
+  color?: string;
 }
 
 const FormHeading: React.FC<Props> = ({
   children,
-  color = "black",
+  color  = "black",
 }) => {
   return (
     <Heading

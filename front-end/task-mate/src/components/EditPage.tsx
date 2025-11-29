@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 import { formatDateTimeInput } from "./styles/DateTime";
+import FormHeading from "./styles/FormHeading";
 
 const priorities = [
   { value: "HIGH", label: "High" },
@@ -173,10 +174,16 @@ const EditPage = () => {
       : form.description.trim().split(/\s+/).filter(Boolean).length;*/
 
   return (
-    <Box backgroundColor="#0f172a">
+    <Box
+      minHeight="100%"
+      width="100%"
+      bgColor="#0f172a"
+      padding={{ base: "3%", sm:"5%", md:"6%", lg:'8%', xl:"9%", "2xl":"10%" }}
+    >
+      <FormHeading color="white">EDIT TASK</FormHeading>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="title" className="form-label">
+          <label htmlFor="title" className="form-label edit-label">
             Title
           </label>
           <input
@@ -201,14 +208,13 @@ const EditPage = () => {
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="description" className="form-label">
+          <label htmlFor="description" className="form-label edit-label">
             Task Description
           </label>
           <textarea
             id="description"
-            className="form-control"
+            className="form-control edit"
             value={form.description}
-            //onChange={handleChange("description")}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
             required
           />
@@ -218,60 +224,74 @@ const EditPage = () => {
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="due_date" className="form-label">
+          <label htmlFor="due_date" className="form-label edit-label">
             Deadline
           </label>
           <input
             type="datetime-local"
             id="due_date"
-            className="form-control"
+            className="form-control edit"
             value={form.due_date}
             onChange={(e) => setForm({ ...form, due_date: e.target.value })}
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="priority" className="form-label">
+          <label htmlFor="priority" className="form-label edit-label">
             Priority
           </label>
           <select
-            className="form-select"
+            className="form-select edit"
             id="priority"
             value={form.priority}
             onChange={(e) => setForm({ ...form, priority: e.target.value })}
             required
           >
-            <option value="">Select Priority...</option>
+            <option className="edit-option" value="">
+              Select Priority...
+            </option>
 
             {priorities.map((priority) => (
-              <option key={priority.value} value={priority.value}>
+              <option
+                className="edit-option-list"
+                key={priority.value}
+                value={priority.value}
+              >
                 {priority.label}
               </option>
             ))}
           </select>
         </div>
         <div className="mb-3">
-          <label htmlFor="completed" className="form-label">
+          <label htmlFor="completed" className="form-label edit-label">
             Status
           </label>
           <select
             id="completed"
-            className="form-select"
+            className="form-select edit"
             value={form.completed}
             onChange={(e) => setForm({ ...form, completed: e.target.value })}
             required
           >
-            <option value="">Select Status...</option>
+            <option className="edit-option" value="">
+              Select Status...
+            </option>
             {statuses.map((status) => (
-              <option key={status.value} value={status.value}>
+              <option
+                className="edit-option-list"
+                key={status.value}
+                value={status.value}
+              >
                 {status.label}
               </option>
             ))}
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Edit Task
-        </button>
+        <div className="edit-btn">
+          <button type="submit" className="btn btn-primary">
+            Edit Task
+          </button>
+        </div>
       </form>
     </Box>
   );
