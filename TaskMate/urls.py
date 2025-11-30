@@ -21,10 +21,6 @@ from django.conf.urls.static import static
 import debug_toolbar
 
 urlpatterns = [
-    #path('', include('core.urls')),
-    #path('login/', include('core.urls')),
-    #path('signup/', include('core.urls')),
-    #path('tasks/', include('core.urls')),
     path('admin/', admin.site.urls),
     path('to-do/', include('task.urls')),
     path('auth/', include('djoser.urls')),

@@ -29,7 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost",
     "127.0.0.1",
-    "taskmate-ela6.onrender.com",]
+    "taskmate-ela6.onrender.com","*.github.io",
+]
 
 
 # Application definition
@@ -176,3 +177,8 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer','JWT',),
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1)
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://taskmate-ela6.onrender.com",
+    "https://sylwambani.github.io"
+]

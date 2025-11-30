@@ -22,18 +22,7 @@ class ListTaskViewSet(ModelViewSet):
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user) 
 
-    @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])
-    def me(self, request):
-        customer = Task.objects.get(
-            user_id=request.user.id)
-        if request.method == 'GET':
-            serializer = ListSerializer(customer)
-            return Response(serializer.data)
-        elif request.method == 'PUT':
-            serializer = ListSerializer(customer, data=request.data)
-            serializer.is_valid(raise_exception=True)
-            serializer.save()
-            return Response(serializer.data)
+   
 
 
 
