@@ -28,6 +28,8 @@ class ListTaskViewSet(ModelViewSet):
 
 class CreateTaskViewSet(CreateModelMixin, GenericViewSet):
     serializer_class = CreateTaskSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user)
