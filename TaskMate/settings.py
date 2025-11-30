@@ -77,6 +77,9 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'Authorization',
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
