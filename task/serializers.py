@@ -20,6 +20,9 @@ class ListSerializer(serializers.ModelSerializer):
         now = timezone.now()
         remaining = task.due_date
 
+        if not remaining:
+            return "No due date"
+
         if remaining > now:
             delta = remaining - now
             days = delta.days
