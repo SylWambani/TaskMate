@@ -105,11 +105,11 @@ WSGI_APPLICATION = 'TaskMate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'taskmate',
-        'HOST': '127.0.0.1',
-        'USER': 'root',
-        'PASSWORD': 'Wambani2000.',
-        'PORT': '3306',
+        'NAME': os.environ.get("taskmate"),
+        'HOST': os.environ.get('127.0.0.1'),
+        'USER': os.environ.get('root'),
+        'PASSWORD': os.environ.get('Wambani2000.'),
+        'PORT': os.environ.get('3306'),
     }
 }
 
